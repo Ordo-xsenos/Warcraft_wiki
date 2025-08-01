@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <style>
+        body {
+            font-family: 'WarcraftFont', sans-serif;
+            background: url('https://img.goodfon.com/original/1920x1080/a/e5/warcraft-3-reforged-undead-death-knight-arthas-menethil-rune.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        .container {
+            width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px gold;
+        }
+        h2 {
+            color: gold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid gold;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: gold;
+            border: none;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: darkgoldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Вход</h2>
+        <form method="post" action="{% url 'users:login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+            <button type="submit">Войти</button>
+        </form>
+        <p>Нет аккаунта? <a href="{% url 'users:register' %}">Зарегистрироваться</a></p>
+    </div>
+</body>
+</html>

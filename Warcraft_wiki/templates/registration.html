@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <style>
+        body {
+            font-family: 'WarcraftFont', sans-serif;
+            background: url('https://img.goodfon.com/original/1920x1080/a/e5/warcraft-3-reforged-undead-death-knight-arthas-menethil-rune.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        .container {
+            width: 500px; /* Уменьшаем ширину */
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px; /* Закруглённые края */
+            text-align: center;
+            box-shadow: 0 0 15px gold;
+
+            /* Центрируем */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        h2 {
+            color: gold;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid gold;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: gold;
+            border: none;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: darkgoldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Регистрация</h2>
+        <form method="post" action="{% url 'users:register' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <p>Уже есть аккаунт? <a href="{% url 'users:login' %}">Войти</a></p>
+    </div>
+</body>
+</html>

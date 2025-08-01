@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block title %}Поиск{% endblock %}
+{% block content %}
+<div class="max-w-3xl mx-auto p-4">
+    <h1 class="text-3xl font-bold mb-6">Результаты поиска по запросу: "{{ query }}"</h1>
+    {% if results %}
+        <ul class="space-y-4">
+        {% for article in results %}
+            <li>
+                <a href="{% url 'articles:article_detail' article.title %}" class="text-xl text-blue-600 hover:underline">
+                    {{ article.title }}
+                </a>
+                <p class="text-gray-700">{{ article.content|truncatewords:20 }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Ничего не найдено.</p>
+    {% endif %}
+</div>
+{% endblock %}

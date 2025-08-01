@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата отменена</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; padding: 50px; }
+        .container { max-width: 500px; margin: auto; }
+        .error { color: red; font-size: 24px; margin-bottom: 20px; }
+        .btn { padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px; }
+        .btn:hover { background-color: #c82333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="error">❌ Оплата была отменена</h1>
+        <p>Ваш платеж не был завершен. Попробуйте снова.</p>
+        <a href="{% url 'index' %}" class="btn">Вернуться на главную</a>
+    </div>
+</body>
+</html>
